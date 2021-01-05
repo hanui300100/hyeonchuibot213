@@ -3,6 +3,7 @@ import datetime
 import asyncio
 import openpyxl
 import random
+import os
 from discord.ext import commands
 
 client = discord.Client()
@@ -145,5 +146,6 @@ async def on_message(message):
 #    await channel.send('🖼️안녕하세요! @(member)님! ☕현치네카페☕에 오신걸 환영합니다\n 먼저 안내를 받아주세요!\n @안내원 을 맨션해주시면 안내해드리겠습니다.\n 오지않는다면 조금 기다려주세요🖼️')#privit 한 메세지를 서버에 보내줌
 # 접속메시지
 
-client.run("NzkyNzA2NzE3NzMyMzA2OTU0.X-hnqQ.6KGIYBAgQ2dSgC7sA2XEX1Rj0Hk")
+access_token = os.environ["BOT_TOKEN"]
+client.run(access_token)
 # 봇 토큰
