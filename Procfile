@@ -1,1 +1,1 @@
-worker: python hyeonchui.py
+worker: python eunba.py
