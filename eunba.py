@@ -36,15 +36,13 @@ async def on_message(message):
 # !은바천보
     if message.content.startswith("!은바천보"):
         if message.author.guild_permissions.manage_messages:
-            try:
-                async def send_dm(ctx, user_name: discord.Member):
-                channel = await user_name.create_dm()
-                await channel.send("현재 시간으로 부터 24시간이 지날 때 마다 은바천보! 를 해당 채널에 씁니다 !")
-                while True:
-                    await message.channel.send("은바천보!")
-                    await asyncio.sleep(60*60*24)
-            else:
-                await message.channel.send("권한이 없습니다.")
+            await message.author.send("현재 시간으로 부터 24시간이 지날 때 마다 은바천보! 를 해당 채널에 씁니다 !")
+            while True:
+                await message.channel.send("은바천보!")
+                await asyncio.sleep(60*60*24)
+        else:
+            await message.channel.send("권한이 없습니다.")
+            await asyncio.sleep(3)
 
 access_token = os.environ['BOT_TOKEN']
 client.run(access_token)
