@@ -20,7 +20,7 @@ async def on_message(message):
 # /테스트
     if message.content.startswith("테스트"):
         embed = discord.Embed(color=0xc4a5df)
-        embed.add_field(name=str(client.user), value="테스트 123", inline=True)
+        embed.add_field(name=str(client.user), value="테스트를 하셨습니다! 작동에는 문제가 없습니다.", inline=True)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
         #CMD로그
@@ -35,14 +35,10 @@ async def on_message(message):
 
 # !은바천보
     if message.content.startswith("!은바천보"):
-        if message.author.guild_permissions.manage_messages:
-            await message.author.send("현재 시간으로 부터 24시간이 지날 때 마다 은바천보! 를 해당 채널에 씁니다 !")
-            while True:
-                await message.channel.send("은바천보!")
-                await asyncio.sleep(60*60*24)
-        else:
-            await message.channel.send("권한이 없습니다.")
-            await asyncio.sleep(3)
+        await message.author.send("현재 시간으로 부터 24시간이 지날 때 마다 은바천보! 를 해당 채널에 씁니다 !")
+        while True:
+            await message.channel.send("은바천보!")
+            await asyncio.sleep(60*60*24)
 
 access_token = os.environ['BOT_TOKEN']
 client.run(access_token)
