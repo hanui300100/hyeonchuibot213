@@ -38,7 +38,7 @@ async def on_message(message):
         await message.author.send("현재 시간으로 부터 24시간이 지날 때 마다 은바천보! 를 해당 채널에 씁니다 !")
         while True:
             await message.channel.send("은바천보!")
-            await asyncio.sleep(60*60*24)
+            await asyncio.sleep(3600)
 
 access_token = os.environ['BOT_TOKEN']
 client.run(access_token)
